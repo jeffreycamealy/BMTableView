@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "TableViewVC.h"
 
 @implementation AppDelegate
 
@@ -27,7 +28,8 @@
 }
 
 - (void)setupRootVC {
-    
+    TableViewVC *tableViewVC = TableViewVC.new;
+    self.window.rootViewController = tableViewVC;
 }
 
 @end
