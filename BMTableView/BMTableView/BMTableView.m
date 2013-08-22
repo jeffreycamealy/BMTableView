@@ -29,13 +29,6 @@
         [scrollView makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo(self);
         }];
-        
-//        contentView = [UIView new];
-//        [scrollView addSubview:contentView];
-//        [contentView makeConstraints:^(MASConstraintMaker *make) {
-//            make.edges.equalTo(scrollView);
-//        }];
-        
     }
     return self;
 }
