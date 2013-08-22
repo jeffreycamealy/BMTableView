@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		008DB48B17C67E1600630031 /* BMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB48A17C67E1600630031 /* BMTableViewCell.m */; };
 		008DB48E17C6833C00630031 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB48D17C6833C00630031 /* ButtonCell.m */; };
 		008DB4DE17C6855A00630031 /* BMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB49317C6855A00630031 /* BMColors.m */; };
 		008DB4DF17C6855A00630031 /* BMDebugUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB49617C6855A00630031 /* BMDebugUtilities.m */; };
@@ -33,6 +32,7 @@
 		008DB4F317C6855A00630031 /* UIView+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB4D717C6855A00630031 /* UIView+Utilities.m */; };
 		008DB4F417C6855A00630031 /* UIViewController+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB4DA17C6855A00630031 /* UIViewController+Utilities.m */; };
 		008DB4F517C6855A00630031 /* VTPG_Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB4DD17C6855A00630031 /* VTPG_Common.m */; };
+		008DB4F817C6A75D00630031 /* BMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 008DB4F717C6A75D00630031 /* BMTableViewCell.m */; };
 		009155E417BF0E64005B4FA3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009155E317BF0E64005B4FA3 /* UIKit.framework */; };
 		009155E617BF0E64005B4FA3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009155E517BF0E64005B4FA3 /* Foundation.framework */; };
 		009155E817BF0E64005B4FA3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 009155E717BF0E64005B4FA3 /* CoreGraphics.framework */; };
@@ -67,8 +67,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		008DB48917C67E1600630031 /* BMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMTableViewCell.h; sourceTree = "<group>"; };
-		008DB48A17C67E1600630031 /* BMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BMTableViewCell.m; sourceTree = "<group>"; };
 		008DB48C17C6833C00630031 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		008DB48D17C6833C00630031 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		008DB49217C6855A00630031 /* BMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BMColors.h; sourceTree = "<group>"; };
@@ -122,6 +120,8 @@
 		008DB4DA17C6855A00630031 /* UIViewController+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Utilities.m"; sourceTree = "<group>"; };
 		008DB4DC17C6855A00630031 /* VTPG_Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPG_Common.h; sourceTree = "<group>"; };
 		008DB4DD17C6855A00630031 /* VTPG_Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPG_Common.m; sourceTree = "<group>"; };
+		008DB4F617C6A75D00630031 /* BMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMTableViewCell.h; path = BMTableView/BMTableViewCell.h; sourceTree = "<group>"; };
+		008DB4F717C6A75D00630031 /* BMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMTableViewCell.m; path = BMTableView/BMTableViewCell.m; sourceTree = "<group>"; };
 		009155E017BF0E64005B4FA3 /* BMTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BMTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		009155E317BF0E64005B4FA3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		009155E517BF0E64005B4FA3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -560,10 +560,10 @@
 		0091562017BF12BC005B4FA3 /* BMTableView */ = {
 			isa = PBXGroup;
 			children = (
+				008DB4F617C6A75D00630031 /* BMTableViewCell.h */,
+				008DB4F717C6A75D00630031 /* BMTableViewCell.m */,
 				0091561D17BF10F6005B4FA3 /* BMTableView.h */,
 				0091561E17BF10F6005B4FA3 /* BMTableView.m */,
-				008DB48917C67E1600630031 /* BMTableViewCell.h */,
-				008DB48A17C67E1600630031 /* BMTableViewCell.m */,
 			);
 			name = BMTableView;
 			sourceTree = "<group>";
@@ -698,7 +698,6 @@
 				009155F417BF0E64005B4FA3 /* AppDelegate.m in Sources */,
 				0091561A17BF0F16005B4FA3 /* TableViewVC.m in Sources */,
 				0091561F17BF10F6005B4FA3 /* BMTableView.m in Sources */,
-				008DB48B17C67E1600630031 /* BMTableViewCell.m in Sources */,
 				008DB48E17C6833C00630031 /* ButtonCell.m in Sources */,
 				008DB4DE17C6855A00630031 /* BMColors.m in Sources */,
 				008DB4DF17C6855A00630031 /* BMDebugUtilities.m in Sources */,
@@ -724,6 +723,7 @@
 				008DB4F317C6855A00630031 /* UIView+Utilities.m in Sources */,
 				008DB4F417C6855A00630031 /* UIViewController+Utilities.m in Sources */,
 				008DB4F517C6855A00630031 /* VTPG_Common.m in Sources */,
+				008DB4F817C6A75D00630031 /* BMTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
