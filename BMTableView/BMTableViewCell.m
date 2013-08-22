@@ -11,7 +11,7 @@
 @implementation BMTableViewCell
 
 - (CGSize)intrinsicContentSize {
-    return CGSizeMake(UIViewNoIntrinsicMetric, 44);
+    return CGSizeMake(320, 44);
 }
 
 @end

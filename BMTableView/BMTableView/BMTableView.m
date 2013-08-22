@@ -11,7 +11,7 @@
 @interface BMTableView () {
     UIView *redView;
     UIView *blueView;
-    UIView *contentView;
+//    UIView *contentView;
     
     UIScrollView *scrollView;
 }
@@ -30,11 +30,11 @@
             make.edges.equalTo(self);
         }];
         
-        contentView = [UIView new];
-        [scrollView addSubview:contentView];
-        [contentView makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(scrollView);
-        }];
+//        contentView = [UIView new];
+//        [scrollView addSubview:contentView];
+//        [contentView makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(scrollView);
+//        }];
         
     }
     return self;
@@ -47,7 +47,7 @@
     for(int i=0;i<numRows;i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         BMTableViewCell *cell = [self.delegate cellForRowAtIndexPath:indexPath];
-        [contentView addSubview:cell];
+        [scrollView addSubview:cell];
         
         if(previousCell) {
             [cell makeConstraints:^(MASConstraintMaker *make) {
@@ -55,23 +55,22 @@
             }];
         } else {
             [cell makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(contentView.top);
+                make.top.equalTo(scrollView.top);
             }];
         }
         
         [cell makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(contentView.left);
-            make.right.equalTo(contentView.right);
+            make.left.equalTo(scrollView.left);
+            make.right.equalTo(scrollView.right);
         }];
         
         previousCell = cell;
         
-//        
-//        if (i == 0) {
-//            [contentView makeConstraints:^(MASConstraintMaker *make) {
-//               make.top.equal
-//            }];
-//        }
+        if(i==numRows - 1) {
+            [scrollView makeConstraints:^(MASConstraintMaker *make) {
+                make.bottom.equalTo(cell.bottom);
+            }];
+        }
     }
 }
 
