@@ -58,13 +58,11 @@
     label.backgroundColor = self.backgroundColor;
 }
 
-- (void)updateConstraints
-{
+- (void)updateConstraints {
     [super updateConstraints];
 }
 
-- (void)setTitle:(NSString *)title
-{
+- (void)setTitle:(NSString *)title {
     _title = title;
     label.text = title;
     [UIView animateWithDuration:1.0 animations:^{
