@@ -8,43 +8,104 @@
 
 #import "BMTableView.h"
 
+@interface BMTableView () {
+    UIView *redView;
+    UIView *blueView;
+    UIView *contentView;
+    
+    UIScrollView *scrollView;
+}
+
+@end
+
 @implementation BMTableView
 
 #pragma mark - Init Method
 
 - (id)init {
     if (self = [super init]) {
-        self.backgroundColor = UIColor.grayColor;
-        self.contentSize = CGSizeMake(320, 1000);
-        
-        UIView *redView = UIView.new;
-        redView.backgroundColor = UIColor.redColor;
-        [self addSubview:redView];
-        [redView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.top);
-            make.right.equalTo(self.right);
-            make.left.equalTo(self.left);
-            make.height.equalTo(@100);
+        scrollView = UIScrollView.new;
+        [self addSubview:scrollView];
+        [scrollView makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self);
         }];
         
-        UIView *blueView = UIView.new;
-        blueView.backgroundColor = UIColor.blueColor;
-        [self addSubview:blueView];
-        [blueView makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(redView.bottom);
-            make.left.equalTo(self.left);
-            make.right.equalTo(self.right);
-            make.height.equalTo(@80);
+        contentView = [UIView new];
+        [scrollView addSubview:contentView];
+        [contentView makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(scrollView);
         }];
+        
     }
     return self;
 }
 
-
-#pragma mark - AutoLayout
-
-//- (void)updateConstraints {
-//    [super updateConstraints];
-//}
+- (void)reloadData
+{
+    NSInteger numRows = self.numberOfRowsInSection();
+    BMTableViewCell *previousCell = nil;
+    for(int i=0;i<numRows;i++) {
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+        BMTableViewCell *cell = [self.delegate cellForRowAtIndexPath:indexPath];
+        [contentView addSubview:cell];
+        
+        if(previousCell) {
+            [cell makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(previousCell.bottom);
+            }];
+        } else {
+            [cell makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(contentView.top);
+            }];
+        }
+        
+        [cell makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(contentView.left);
+            make.right.equalTo(contentView.right);
+        }];
+        
+        previousCell = cell;
+        
+//        
+//        if (i == 0) {
+//            [contentView makeConstraints:^(MASConstraintMaker *make) {
+//               make.top.equal
+//            }];
+//        }
+    }
+}
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

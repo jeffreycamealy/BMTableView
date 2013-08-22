@@ -1,0 +1,3 @@
+[submodule "Submodules/BMUtilityPack"]
+	path = Submodules/BMUtilityPack
+	url = https://github.com/jeffreycamealy/BMUtilityPack.git

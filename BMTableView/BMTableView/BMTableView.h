@@ -7,7 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BMTableViewCell.h"
 
-@interface BMTableView : UIScrollView
+@protocol BMTableViewDelegate <NSObject>
+
+- (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+@end
+
+@interface BMTableView : UIView
+
+@property (strong) NSUInteger(^numberOfRowsInSection)();
+@property (weak) id<BMTableViewDelegate> delegate;
+
+- (void)reloadData;
 
 @end
