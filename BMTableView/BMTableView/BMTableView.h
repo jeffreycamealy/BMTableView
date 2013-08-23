@@ -11,6 +11,7 @@
 
 @protocol BMTableViewDelegate <NSObject>
 
+- (NSUInteger)numberOfRowsInSection:(NSUInteger)section;
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
@@ -19,6 +20,7 @@
 
 @property (strong) NSUInteger(^numberOfRowsInSection)();
 @property (weak) id<BMTableViewDelegate> delegate;
+@property NSUInteger cellSpacing;
 
 - (void)reloadData;
 

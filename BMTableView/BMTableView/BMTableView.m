@@ -33,9 +33,8 @@
     return self;
 }
 
-- (void)reloadData
-{
-    NSInteger numRows = self.numberOfRowsInSection();
+- (void)reloadData {
+    NSInteger numRows = [self.delegate numberOfRowsInSection:0];
     BMTableViewCell *previousCell = nil;
     for(int i=0;i<numRows;i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
@@ -44,7 +43,7 @@
         
         if(previousCell) {
             [cell makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(previousCell.bottom);
+                make.top.equalTo(previousCell.bottom).with.offset(self.cellSpacing);
             }];
         } else {
             [cell makeConstraints:^(MASConstraintMaker *make) {
