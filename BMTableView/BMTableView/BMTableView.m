@@ -70,32 +70,36 @@
     NSInteger numRows = [self.delegate numberOfRowsInSection:0];
     BMTableViewCell *previousCell = nil;
     for (int i = 0; i < numRows; i++) {
+        // Retreive / Add Cell
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         BMTableViewCell *cell = [self.delegate cellForRowAtIndexPath:indexPath];
         [scrollView addSubview:cell];
         
-        if(previousCell) {
-            [cell makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(previousCell.bottom).with.offset(self.cellSpacing);
-            }];
-        } else {
-            [cell makeConstraints:^(MASConstraintMaker *make) {
-                make.top.equalTo(scrollView.top);
-            }];
-        }
         
+        // Add Constraints
         [cell makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(scrollView.left);
             make.right.equalTo(scrollView.right);
         }];
         
-        previousCell = cell;
-        
-        if (i == numRows-1) {
+        if(!previousCell) { // Top Cell
+            [cell makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(scrollView.top);
+            }];
+        } else { // Middle Cell
+            [cell makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(previousCell.bottom).with.offset(self.cellSpacing);
+            }];
+        }
+
+        if (i == numRows-1) { // Last Cell
             [scrollView makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(cell.bottom);
             }];
         }
+        
+        // Set Previous Cell
+        previousCell = cell;
     }
 }
 

@@ -49,10 +49,10 @@
 		0091560F17BF0E64005B4FA3 /* BMTableViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0091560E17BF0E64005B4FA3 /* BMTableViewTests.m */; };
 		0091561A17BF0F16005B4FA3 /* TableViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0091561917BF0F16005B4FA3 /* TableViewVC.m */; };
 		0091561F17BF10F6005B4FA3 /* BMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0091561E17BF10F6005B4FA3 /* BMTableView.m */; };
-		0091562217BF14B7005B4FA3 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091562117BF14B7005B4FA3 /* Reveal.framework */; };
 		0091562417BF14F0005B4FA3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091562317BF14F0005B4FA3 /* CFNetwork.framework */; };
 		0091562617BF14F6005B4FA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0091562517BF14F6005B4FA3 /* QuartzCore.framework */; };
 		0091562817BF1FF0005B4FA3 /* Pods.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 0091562717BF1FF0005B4FA3 /* Pods.xcconfig */; };
+		00D8B5CD17D63467004AC29C /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00D8B5CC17D63467004AC29C /* Reveal.framework */; };
 		D902ADBB33B54DF59DAC9E1C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E709CC7C0F254E2885C5EA9A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -145,10 +145,10 @@
 		0091561917BF0F16005B4FA3 /* TableViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewVC.m; sourceTree = "<group>"; };
 		0091561D17BF10F6005B4FA3 /* BMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMTableView.h; path = BMTableView/BMTableView.h; sourceTree = "<group>"; };
 		0091561E17BF10F6005B4FA3 /* BMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BMTableView.m; path = BMTableView/BMTableView.m; sourceTree = "<group>"; };
-		0091562117BF14B7005B4FA3 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		0091562317BF14F0005B4FA3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		0091562517BF14F6005B4FA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0091562717BF1FF0005B4FA3 /* Pods.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = CocoaPods/Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		00D8B5CC17D63467004AC29C /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 		E709CC7C0F254E2885C5EA9A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -163,7 +163,7 @@
 				009155E617BF0E64005B4FA3 /* Foundation.framework in Frameworks */,
 				009155E817BF0E64005B4FA3 /* CoreGraphics.framework in Frameworks */,
 				D902ADBB33B54DF59DAC9E1C /* libPods.a in Frameworks */,
-				0091562217BF14B7005B4FA3 /* Reveal.framework in Frameworks */,
+				00D8B5CD17D63467004AC29C /* Reveal.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,9 +481,9 @@
 		009155E217BF0E64005B4FA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				00D8B5CC17D63467004AC29C /* Reveal.framework */,
 				0091562517BF14F6005B4FA3 /* QuartzCore.framework */,
 				0091562317BF14F0005B4FA3 /* CFNetwork.framework */,
-				0091562117BF14B7005B4FA3 /* Reveal.framework */,
 				009155E317BF0E64005B4FA3 /* UIKit.framework */,
 				009155E517BF0E64005B4FA3 /* Foundation.framework */,
 				009155E717BF0E64005B4FA3 /* CoreGraphics.framework */,
