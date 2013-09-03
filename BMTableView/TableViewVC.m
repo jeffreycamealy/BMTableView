@@ -12,8 +12,11 @@
 
 
 @interface TableViewVC () <BMTableViewDelegate>
-
+{
+    BMTableView *tableView;
+}
 @end
+
 
 @implementation TableViewVC
 
@@ -21,26 +24,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupTableView];
     
-    BMTableView *tableView = BMTableView.new;
-    tableView.delegate = self;
+}
+
+
+#pragma mark - Private API
+
+- (void)setupTableView {
+    tableView = BMTableView.new;
     [self.view addSubview:tableView];
-    
     [tableView makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
     
-    tableView.numberOfRowsInSection = ^NSUInteger{
-        return 13;
-    };
+    tableView.delegate = self;
+    [tableView registerClass:ButtonCell.class forCellReuseIdentifier:nil];
     
     [tableView reloadData];
 }
 
 #pragma mark - Table View Delegate
 
+- (NSUInteger)numberOfRowsInSection:(NSUInteger)section {
+        return 13;
+}
+
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    ButtonCell *cell = ButtonCell.new;
+    ButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:nil];
+    
     cell.title = [BMMath randomStringOfLength:(arc4random()%300) + 200];
     cell.backgroundColor = randomColor();
     return cell;

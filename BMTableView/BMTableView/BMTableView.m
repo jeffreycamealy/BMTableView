@@ -9,11 +9,10 @@
 #import "BMTableView.h"
 
 @interface BMTableView () {
-    UIView *redView;
-    UIView *blueView;
-//    UIView *contentView;
-    
     UIScrollView *scrollView;
+    NSMutableArray *reusuableCells;
+    
+    Class cellReuseClass;
 }
 
 @end
@@ -24,19 +23,53 @@
 
 - (id)init {
     if (self = [super init]) {
-        scrollView = UIScrollView.new;
-        [self addSubview:scrollView];
-        [scrollView makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(self);
-        }];
+        [self setupScrollView];
+        reusuableCells = [NSMutableArray new];
     }
     return self;
+}
+
+
+#pragma mark - Public API
+
+- (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier {
+    NSAssert([cellClass isSubclassOfClass:BMTableViewCell.class], @"Cells must subclass BMTableViewCell.");
+    cellReuseClass = cellClass;
+}
+
+- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier {
+    NSAssert(cellReuseClass, @"The must be a cell class associated with this reuse identifier.");
+    
+    BMTableViewCell *cell = nil;
+    
+    if (reusuableCells.count < 5) {
+        cell = [cellReuseClass new];
+        [reusuableCells addObject:cell];
+    } else {
+        cell = reusuableCells[0];
+        [cell removeConstraints:cell.constraints];
+        [reusuableCells removeObjectAtIndex:0];
+        [reusuableCells addObject:cell];
+    }
+    
+    return cell;
+}
+
+
+#pragma mark - Private API
+
+- (void)setupScrollView {
+    scrollView = UIScrollView.new;
+    [self addSubview:scrollView];
+    [scrollView makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
 }
 
 - (void)reloadData {
     NSInteger numRows = [self.delegate numberOfRowsInSection:0];
     BMTableViewCell *previousCell = nil;
-    for(int i=0;i<numRows;i++) {
+    for (int i = 0; i < numRows; i++) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
         BMTableViewCell *cell = [self.delegate cellForRowAtIndexPath:indexPath];
         [scrollView addSubview:cell];
@@ -58,7 +91,7 @@
         
         previousCell = cell;
         
-        if(i==numRows - 1) {
+        if (i == numRows-1) {
             [scrollView makeConstraints:^(MASConstraintMaker *make) {
                 make.bottom.equalTo(cell.bottom);
             }];

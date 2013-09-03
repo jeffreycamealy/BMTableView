@@ -16,12 +16,16 @@
 
 @end
 
+
 @interface BMTableView : UIView
 
-@property (strong) NSUInteger(^numberOfRowsInSection)();
 @property (weak) id<BMTableViewDelegate> delegate;
 @property NSUInteger cellSpacing;
 
 - (void)reloadData;
+
+
+- (void)registerClass:(Class)cellClass forCellReuseIdentifier:(NSString *)identifier;
+- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
 @end
