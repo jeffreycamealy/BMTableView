@@ -39,3 +39,11 @@ set using [Masonry](https://github.com/cloudkite/Masonry) framework).
     return self;
 }
 ```
+
+## Roadmap
+
+This Framework is still in early development and is not yet ready for shipping applications.  That being said, we are 
+quickly working to fill out the rest of the standard features from `UITableView`.  The main challenges remaining are:
+- Table view cell reuse
+- Partial table view loading (i.e. Only load the first 10 cells of a 100 cell tableview, then add more 
+cells as the user scrolls)
