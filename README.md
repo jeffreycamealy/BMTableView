@@ -6,12 +6,36 @@ __Goal__: To develop a `UITableView` replacement that will be based on Auto Layo
 
 ## Current Functionality
 
-- Table View Cell height will be calculated for you automatically.  No more `heightForRowAtIndexPath:`!
+- Table view cell height will be calculated for you automatically.  No more `heightForRowAtIndexPath:`!
 - If you animate the height change of one of your table view cells, the table view will animate the other cells 
 to fill in automatically.
 
 
 ## Usage
 
-Implement `BMTableView`s delegate methods `numberOfRowsInSection:` and `cellForRowAtIndexPath:`.  In your custom subclass 
-of `BMTableViewCell` set its size using Auto Layout. 
+Implement `BMTableView`s delegate methods: 
+- `numberOfRowsInSection:` 
+- `cellForRowAtIndexPath:`
+
+In your custom subclass of `BMTableViewCell` set its size using Auto Layout.  See an example below (constraints are 
+set using [Masonry](https://github.com/cloudkite/Masonry) framework).
+
+```
+- (id)init {
+    if (self = [super init]) {
+        label = UILabel.new;
+        [self addSubview:label];
+        label.numberOfLines = 0; // Label will be a variable height
+        label.preferredMaxLayoutWidth = 280;
+        [label makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.top);
+            make.left.equalTo(self.left);
+        }];
+        
+        [self makeConstraints:^(MASConstraintMaker *make) {
+            make.bottom.equalTo(label.bottom);
+        }];
+    }
+    return self;
+}
+```
