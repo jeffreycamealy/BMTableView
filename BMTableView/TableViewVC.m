@@ -30,14 +30,14 @@
         make.edges.equalTo(self.view);
     }];
     
-    tableView.numberOfRowsInSection = ^NSUInteger{
-        return 13;
-    };
-    
     [tableView reloadData];
 }
 
 #pragma mark - Table View Delegate
+
+- (NSUInteger)numberOfRowsInSection:(NSUInteger)section {
+    return 13;
+}
 
 - (BMTableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ButtonCell *cell = ButtonCell.new;
